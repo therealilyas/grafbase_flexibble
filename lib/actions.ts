@@ -87,3 +87,8 @@ export const createNewProject = async (
     return makeGraphQLRequest(createProjectMutation, variables);
   }
 };
+
+export const fetchAllProjects = async (
+  category?: string,
+  endcursor?: string
+) => {};
