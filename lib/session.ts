@@ -62,7 +62,7 @@ export const authOptions: NextAuthOptions = {
         )) as unknown as {
           user?: UserProfile;
         };
-        if (!userExists.user) {
+        if (!userExists?.user) {
           await createUser(
             user.name as string,
             user.email as string,
