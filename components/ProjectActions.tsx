@@ -1,12 +1,26 @@
 "use client";
+import { deleteProject, fetchToken } from "@/lib/actions";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 const ProjectActions = ({ projectId }: { projectId: string }) => {
+  const router = useRouter();
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const handleDeleteProject = async () => {};
+  const handleDeleteProject = async () => {
+    setIsDeleting(true);
+    const { token } = await fetchToken();
+
+    try {
+      await deleteProject(projectId, token);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsDeleting(false);
+    }
+  };
 
   return (
     <>
