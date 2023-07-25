@@ -21,10 +21,11 @@ const apiKey = isProduction
 const serverUrl = isProduction
   ? process.env.NEXT_PUBLIC_SERVER_URL
   : "http://localhost:3000";
-const client = new GraphQLClient("apiUrl");
+const client = new GraphQLClient(apiUrl);
 
 const makeGraphQLRequest = async (query: string, variables = {}) => {
   try {
+    // return await client.request(query, variables); //error
   } catch (error) {
     throw error;
   }
